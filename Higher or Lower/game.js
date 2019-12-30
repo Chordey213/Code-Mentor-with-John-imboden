@@ -61,12 +61,19 @@ function playGame(playerChoice){
     let result = evaluate(rollResult, total, playerChoice);
     if(result === "Win"){
         gamesWon++;
-        document.getElementById("results").innerHTML = result
+        document.getElementById("results").innerHTML = <ol id="resultList">
+        //result
         //die roll 1 was this
+            <li>"die roll 1 was " + rollResult </li>;
         //die roll 2 was this
+            <li>"die roll 2 was " + total </li>;
         //you guessed this
+            <li>"Your guess was " + playerChoice </li>;
         //display win or lose
+            <li>"You Won!" </li>;
+        </ol>;
         //rerun initialize
+        initialize();
     } else {
         gamesLost++;
         document.getElementById("results").innerHTML = result
