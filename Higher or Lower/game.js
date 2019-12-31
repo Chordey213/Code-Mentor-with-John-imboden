@@ -59,30 +59,39 @@ function playGame(playerChoice){
     let roll2A = roll2();
     let total = roll1A + roll2A;
     let result = evaluate(rollResult, total, playerChoice);
+    let content = document.getElementById("results");
+    
     if(result === "Win"){
-        gamesWon++;
-        document.getElementById("results").innerHTML = <ol id="resultList">
-        //result
+        gamesWon++;  
+        // //display win or lose
+        content.innerHTML = "Here is the result: " + result;       
         //die roll 1 was this
-            <li>"die roll 1 was " + rollResult </li>;
-        //die roll 2 was this
-            <li>"die roll 2 was " + total </li>;
-        //you guessed this
-            <li>"Your guess was " + playerChoice </li>;
-        //display win or lose
-            <li>"You Won!" </li>;
-        </ol>;
+        content.innerHTML += ". die roll 1 was: " + die1;
+        // //die roll 2 was this
+        content.innerHTML += ", die roll 2 was: " + die2;
+        // //you guessed this
+        content.innerHTML += ", you guessed: " + playerChoice;
+
+        // Display the result of the second roll total
+        content.innerHTML += ", the second roll was: " + total;
         //rerun initialize
-        initialize();
-    } else {
+        
+        
+    }  else {
         gamesLost++;
-        document.getElementById("results").innerHTML = result
+        // //display win or lose
+        content.innerHTML = "Here is the result: " + result;       
         //die roll 1 was this
-        //die roll 2 was this
-        //you guessed this
-        //display win or lose
+        content.innerHTML += ". die roll 1 was: " + die1;
+        // //die roll 2 was this
+        content.innerHTML += ", die roll 2 was: " + die2;
+        // //you guessed this
+        content.innerHTML += ", you guessed: " + playerChoice;
+
+        // Display the result of the second roll total
+        content.innerHTML += ", the second roll was: " + total;
         //rerun initialize
-    } setScoreBoard();
+    } setScoreBoard(); 
     
 };
 
@@ -90,12 +99,11 @@ function evaluate(result1, result2, playerChoice){
     if(result2 > result1 && playerChoice === "Higher"){
         return "Win"
     }
-    
     if( result2 < result1 && playerChoice === "Lower"){
         return "Win"
     } else {
         return "Lose"
-    }
+    } 
 };
 
 //there is a problem with the script. I need the code to automatically "Refresh" in order 
