@@ -50,32 +50,33 @@ let mob = {
 // 3. setup the mechanisms for combat using functions. This will be broken down into several steps and functions
 function abilityMod(playerAbility){
     let attackChance = Math.floor((playerAbility - 10)/2);
-    console.log(attackChance);
+    console.log("This is the ability modifier:", attackChance);
+    return attackChance;
 };
 
-abilityMod(player.str);
+// abilityMod(player.str);
 
 function die20Roll(){
     var die1 = Math.floor(Math.random()*20)+1;
-    console.log(die1);
+    console.log("This is what the D20 returned after rolling:", die1);
     return die1;
 };
-die20Roll();
+// die20Roll();
 
 function hitCount(die1, attackChance, mob){
     let hitChance = die1 + attackChance;
     let AC = mob.AC;
     //I can't seem to access the mobs AC here. I should look at mimmicing the evaluate function from "higher or lower"
 
-    if(hitChance > AC){
-        console.log("Hit!");
-        return "Hit!";
+    if(hitChance >= AC){
+        console.log("The player landed a successful Hit!");
+        return true;
     } else {
-        Console.log("Miss!");
-        "Miss!";
+        console.log("Miss!");
+        return false;
     }
 };
-// hitCount();
-console.log(mob.AC);
+hitCount(die20Roll(), abilityMod(player.str), mob);
+console.log("This is the Mobs Armor Class:", mob.AC);
 // 4. Setup the logic for a win  or lose scenario
 // 5. Give the player the option to Replay. Later iterations may offer the opportunity to face newer enemies
