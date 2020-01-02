@@ -64,8 +64,10 @@ die20Roll();
 
 function hitCount(die1, attackChance, mob){
     let hitChance = die1 + attackChance;
+    let AC = mob.AC;
+    //I can't seem to access the mobs AC here. I should look at mimmicing the evaluate function from "higher or lower"
 
-    if(hitChance > mob.AC){
+    if(hitChance > AC){
         console.log("Hit!");
         return "Hit!";
     } else {
@@ -73,6 +75,7 @@ function hitCount(die1, attackChance, mob){
         "Miss!";
     }
 };
-die20Roll();
+// hitCount();
+console.log(mob.AC);
 // 4. Setup the logic for a win  or lose scenario
 // 5. Give the player the option to Replay. Later iterations may offer the opportunity to face newer enemies
