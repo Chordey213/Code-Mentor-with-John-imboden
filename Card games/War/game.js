@@ -31,17 +31,23 @@ let suites = [
 // This object builds one card from the cards and suites array literals
 let deck = {
     newCard: {
-        suite: suites[0],
-        faceValue: card[0][0],
-        computationalValue: card[0][1],
+        suite: '',
+        faceValue: '',
+        computationalValue: '',
         assetLocation: "assets/" + card[0][1] + "_of_" + suites[0] + ".svg"
     }
 };
 //you need to break down exactly how to build a deck, given the information that you have.
 // I need to place 14 cards in 4 suites
-function buildDeck(card, suites){
-    
+function buildDeck(card,suites){
+    for(i=0;i<card.length;i++){
+        for(j=0;j<card[i].length;j++){
+            deck.newCard.faceValue=card[i][j];
+            deck.newCard.computationalValue=card[i][j];
+        }
+    }
 }
+buildDeck(card);
 
 function displayCard(deck) {
     let cardImage = document.getElementById("img").src = deck.newCard.assetLocation;
