@@ -1,8 +1,0 @@
-function convertDeck(){
-	{
-            suite: "hearts",
-            faceValue: 2,
-            computationalValue: 2,
-            assetLocation: "assets/2_of_hearts.svg"
-        }
-};
