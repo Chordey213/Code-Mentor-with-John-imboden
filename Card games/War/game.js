@@ -8,6 +8,7 @@
 //     A. Define a card Object we need a suite, a face value, a computational value
 //        (A mathematic value for the card, used for comparing one card to another),
 //        Asset Location(The location of the image of the card in the folder structure).
+let playDeck = [];
 let card = [
     ["two", 2],
     ["three", 3],
@@ -45,16 +46,16 @@ function buildDeck1(card){
             deck.newCard.faceValue=card[i][j];
             deck.newCard.computationalValue=card[i][j];
         }
-    }
+    } playDeck.push(deck);
 };
 buildDeck1(card);
 
-function buildDeck2(suites){
-    for(i=0;i<suites.length;i++){
-        deck.newCard.suite=suites[i];
-    }
-};
-buildDeck2(suites);
+// function buildDeck2(suites){
+//     for(i=0;i<suites.length;i++){
+//         deck.newCard.suite=suites[i];
+//     }
+// };
+// buildDeck2(suites);
 
 function displayCard(deck) {
     let cardImage = document.getElementById("img").src = deck.newCard.assetLocation;
@@ -63,7 +64,7 @@ function displayCard(deck) {
 displayCard(deck);
 
 
-console.log(deck);
+console.log(playDeck);
 
 // 2. Shuffle all of the cards
 //     B. develop a way to unstack the deck, and randomize the order. 
