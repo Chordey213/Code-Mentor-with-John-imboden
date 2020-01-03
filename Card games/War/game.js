@@ -39,15 +39,22 @@ let deck = {
 };
 //you need to break down exactly how to build a deck, given the information that you have.
 // I need to place 14 cards in 4 suites
-function buildDeck(card,suites){
+function buildDeck1(card){
     for(i=0;i<card.length;i++){
         for(j=0;j<card[i].length;j++){
             deck.newCard.faceValue=card[i][j];
             deck.newCard.computationalValue=card[i][j];
         }
     }
-}
-buildDeck(card);
+};
+buildDeck1(card);
+
+function buildDeck2(suites){
+    for(i=0;i<suites.length;i++){
+        deck.newCard.suite=suites[i];
+    }
+};
+buildDeck2(suites);
 
 function displayCard(deck) {
     let cardImage = document.getElementById("img").src = deck.newCard.assetLocation;
