@@ -75,7 +75,7 @@ function playGame(playerChoice){
         // Display the result of the second roll total
         content.innerHTML += ", the second roll was: " + total;
         //rerun initialize
-        
+        setTimeout(initialize, 7000);
         
     }  else {
         gamesLost++;
@@ -91,6 +91,7 @@ function playGame(playerChoice){
         // Display the result of the second roll total
         content.innerHTML += ", the second roll was: " + total;
         //rerun initialize
+        setTimeout(initialize, 7000);
     } setScoreBoard(); 
     
 };
