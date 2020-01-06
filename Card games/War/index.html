@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Card Game - War</title>
+</head>
+
+<body>
+    <div id="scoreboard"></div>
+    <div id="controls"></div>  
+    <div id="playArea">
+        <table>
+            <tr>
+                <td>
+                    <img id="playerDeckBack" onclick="playGame()">
+
+                </td>
+                <td>
+                        <img id="playerCurrentCard">
+
+                </td>
+                <td>
+
+                    <img id="computerCurrentCard">
+                </td>
+                <td>
+                    <img id="computerDeckBack">
+
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    Player Deck: <span id="playerDeckCount"></span>
+                </td>
+                <td><span id="playerMessage"></span></td>
+                <td><span id="computerMessage"></span></td>
+                <td>
+                    Computer Deck: <span id="computerDeckCount"></span>
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+    <img id="cardImage">
+    <div id="results"></div>
+</body>
+<script src="deck.js"></script>
+<script src="game.js"></script>
+</html>
