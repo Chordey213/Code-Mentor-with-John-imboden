@@ -1,7 +1,5 @@
- 
-
-export function getDeck() {
-    let cards = [
+function getDeck() {
+    var cards = [
         {
             suite: "hearts",
             faceValue: 2,
@@ -316,16 +314,34 @@ export function getDeck() {
         }
     ]
 
-function shuffle(){
-    let shuffledDeck = [];
+    function shuffle() {        
+        // this variable acts as a buffer / temp variable for holding
+        // the shuffled cards.
+        var shuffledDeck = [];
 
-}
+        //This is a cached of the length of the cards in the deck.
+        let len = cards.length
 
-let deck = {
-    cards:cards,
-    shuffle:shuffle
+        //loop N times where N is the number of cards in the deck.
+        for (var i = 0; i < len; i++) {
+            // select a random card from the list of unselected cards.
+            let selectedCardIndex = Math.floor(Math.random() * this.cards.length);
 
-}
+            //Add the selected card to our buffer deck.
+            shuffledDeck.push(this.cards[selectedCardIndex]);
+
+            //We throw away the selected card from the unselected list.
+            this.cards.splice(selectedCardIndex, 1);
+        }
+
+        //Replace the now empty unselected list with the shuffled deck.
+        this.cards = shuffledDeck;        
+    }
+
+    var deck = {
+        cards: cards,
+        shuffle: shuffle
+    }
 
     return deck;
 }
