@@ -8,6 +8,10 @@
 //     A. Define a card Object we need a suite, a face value, a computational value
 //        (A mathematic value for the card, used for comparing one card to another),
 //        Asset Location(The location of the image of the card in the folder structure).
+let gamesPlayed = 0;
+let gamesWon = 0;
+let gamesLost = 0;
+let gamesTied = 0;
 var newDeck = [];
 let card = [
     ["two", 2],
@@ -31,29 +35,27 @@ let suites = [
 
 function buildDeck1(card, suites) {
     var playDeck = [];
-    
+
     for (i = 0; i < suites.length; i++) {
         for (j = 0; j < card.length; j++) {
             let newCard = {
                 suite: suites[i],
                 faceValue: card[j][0],
-                computationalValue: card[j][1],
-                assetLocation: "assets/" + card[j][1] + "_of_" + suites[i] + ".svg"
+                computationalValue: card[j][1]
             }
-            // var cardImage = "assets/" + card[j][1] + "_of_" + suites[i] + ".svg"
-            // for(ext in cardImage){
-            //     for(i=0;i< cardImage[ext];i++){
-            //         src = "assets/" + cardImage + "_of_" + (i+1) + ".svg" + ext;
-            //         if(src != cardImage){
-            //             var cardImage = "assets/" + card[j][0] + "_of_" + suites[i] + ".svg" 
-            //             console.log(cardImage);
-            //             return cardImage 
-            //         }
-            //     }
-            // }
 
+            if (card[j][1] <= 10) {
+                newCard.assetLocation = "assets/" + card[j][1] + "_of_" + suites[i] + ".svg"
+                // console.log(newCard.assetLocation);
+            }
+            else {
+                newCard.assetLocation = "assets/" + card[j][0] + "_of_" + suites[i] + ".svg"
+                // console.log(card[j][0]);
+                // console.log(newCard.assetLocation);
+                // return newCard.assetLocation;
+            }
             playDeck.push(newCard);
-            // console.log(newCard.assetLocation);
+            // console.log(newCard);
         }
 
     }
@@ -88,6 +90,8 @@ newDeck = shuffleDeck(newDeck);
 
 // 3. divvy cards out to players
 //     A. Split the deck into two stacks. A collection for the User, and a Collection for the Computer
+
+
 var playerDeck = newDeck.splice(26);
 var npcDeck = newDeck;
 console.log("This is the players deck: ", playerDeck);
@@ -100,28 +104,60 @@ console.log("This is the Computers deck: ", npcDeck);
 //      B. The computer must draw a card from the top of its deck, and ensure that it is removed from the collection
 //      C. Evaluate which card has the higher computational value
 //      D. The winner takes the cards from the round, and places them on the bottom of their deck.
+function setScoreBoard() {
+    document.getElementById("scoreboard").innerHTML = "Played: " + gamesPlayed + ", Won: " + gamesWon + ", Lost: " + (gamesPlayed - gamesWon) + ", Tied: " + gamesTied;
+};
+setScoreBoard();
 function playGame() {
-    var playerCard = playerDeck.shift(1);   
+    var playerCard = playerDeck.shift(1);
     var npcCard = npcDeck.shift(1);
     displayCard(playerCard, npcCard);
-    console.log(playerCard);
-    console.log(npcCard);
     displaystack();
+    evaluate(playerCard, npcCard);
+    gamesPlayed+=1;
     return playerCard, npcCard;
 
 };
 
 function displayCard(playerCard, npcCard) {
-    document.getElementById("player1Card").src=playerCard.assetLocation;
-    document.getElementById("npc1Card").src=npcCard.assetLocation;
+    document.getElementById("player1Card").src = playerCard.assetLocation;
+    document.getElementById("npc1Card").src = npcCard.assetLocation;
+    // console.log(playerCard.assetLocation);
+    // console.log(npcCard.assetLocation);
     return playerCard, npcCard;
+
 };
 
-function evaluate(playerCard, npcCard){
-    if(playerCard > npcCard){
-        
-    }
+function evaluate(playerCard, npcCard) {
+    if (playerCard.computationalValue > npcCard.computationalValue) {
+        console.log("You win!");
+        gamesWon+=1;
+
+        // var element = document.getElementById("player1Card");
+        // element.parentNode.removeChild(element);
+        // var element2 = document.getElementById("npc1Card")
+        // element2.parentNode.removeChild(element2);
+        // document.getElementById("playarea").src = "assets/You win.png";
+
+    } else if (playerCard.assetLocation < npcCard.assetLocation) {
+        console.log("You lose!");
+        gamesLost+=1;
+        // var element = document.getElementById("player1Card");
+        // element.parentNode.removeChild(element);
+        // var element2 = document.getElementById("npc1Card")
+        // element2.parentNode.removeChild(element2);
+        // document.getElementById("playarea").src = "assets/You lose.png";
+    } else if (playerCard.assetLocation === npcCard.assetLocation) {
+        console.log("You Tied!");
+        gamesTied+=1;
+
+    } setScoreBoard();
+    console.log(gamesPlayed);
+    console.log(gamesWon);
+    console.log(gamesLost);
+    console.log(gamesTied);
 }
+
 
 // 5. Repeat gameplay until one of the collections reaches a count of Zero.
 //      A. Once this happens, a winner is declared. Thbe winner will be placed on screen. 
