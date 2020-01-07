@@ -133,7 +133,7 @@ function evaluate(playerCard, npcCard) {
         // element2.parentNode.removeChild(element2);
         // document.getElementById("playarea").src = "assets/You win.png";
 
-    } else if (playerCard.assetLocation < npcCard.assetLocation) {
+    } else if (playerCard.computationalValue < npcCard.computationalValue) {
         console.log("You lose!");
         console.log(playerCard.computationalValue);
         console.log(npcCard.computationalValue);
@@ -143,7 +143,7 @@ function evaluate(playerCard, npcCard) {
         // var element2 = document.getElementById("npc1Card")
         // element2.parentNode.removeChild(element2);
         // document.getElementById("playarea").src = "assets/You lose.png";
-    } else if (playerCard.assetLocation = npcCard.assetLocation) {
+    } else if (playerCard.computationalValue = npcCard.computationalValue) {
         console.log("You Tied!");
         console.log(playerCard.computationalValue);
         console.log(npcCard.computationalValue);
