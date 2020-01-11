@@ -13,6 +13,8 @@ let gamesWon = 0;
 let gamesLost = 0;
 let gamesTied = 0;
 var newDeck = [];
+let p1remain = [];
+let npcremain = [];
 let card = [
     ["two", 2],
     ["three", 3],
@@ -92,8 +94,8 @@ function displaystack() {
 //     A. Split the deck into two stacks. A collection for the User, and a Collection for the Computer
 var playerDeck = newDeck.splice(26);
 var npcDeck = newDeck;
-console.log("This is the players deck: ", playerDeck);
-console.log("This is the Computers deck: ", npcDeck);
+////console.log("This is the players deck: ", playerDeck);
+////console.log("This is the Computers deck: ", npcDeck);
 // 4. Begin gameplay
 //      A. the Player must click a button to draw a card from their stack
 //          Whenever the player draws the card, it is removed from the TOP of their deck, and from the collection
@@ -102,20 +104,19 @@ console.log("This is the Computers deck: ", npcDeck);
 //      D. The winner takes the cards from the round, and places them on the bottom of their deck.
 
 function playGame() {
-    gamesPlayed+=1;
+    gamesPlayed += 1;
     var playerCard = playerDeck.shift(1);
     var npcCard = npcDeck.shift(1);
+    console.log("this is the players card", playerCard);
+    console.log("this is the npcs card", npcCard);
     displayCard(playerCard, npcCard);
     displaystack();
     evaluate(playerCard, npcCard);
-        return playerCard, npcCard;
 };
 
 function displayCard(playerCard, npcCard) {
     document.getElementById("player1Card").src = playerCard.assetLocation;
     document.getElementById("npc1Card").src = npcCard.assetLocation;
-    // console.log(playerCard.assetLocation);
-    // console.log(npcCard.assetLocation);
     return playerCard, npcCard;
 
 };
@@ -123,31 +124,30 @@ function displayCard(playerCard, npcCard) {
 function evaluate(playerCard, npcCard) {
     if (playerCard.computationalValue > npcCard.computationalValue) {
         console.log("You win!");
-        console.log(playerCard.computationalValue);
-        console.log(npcCard.computationalValue);
-        gamesWon+=1;
-
-        // var element = document.getElementById("player1Card");
-        // element.parentNode.removeChild(element);
-        // var element2 = document.getElementById("npc1Card")
-        // element2.parentNode.removeChild(element2);
-        // document.getElementById("playarea").src = "assets/You win.png";
+        gamesWon += 1;
+        playerDeck.push(npcCard);
+        playerDeck.push(playerCard);
+        console.log("this is the players deck", playerDeck);
+        console.log(npcDeck);
+        ////console.log("This is the players deck: ", playerDeck);
+        ////console.log("This is the Computers deck: ", npcDeck);
 
     } else if (playerCard.computationalValue < npcCard.computationalValue) {
         console.log("You lose!");
-        console.log(playerCard.computationalValue);
-        console.log(npcCard.computationalValue);
-        gamesLost+=1;
-        // var element = document.getElementById("player1Card");
-        // element.parentNode.removeChild(element);
-        // var element2 = document.getElementById("npc1Card")
-        // element2.parentNode.removeChild(element2);
-        // document.getElementById("playarea").src = "assets/You lose.png";
+        gamesLost += 1;
+        npcDeck.push(playerCard);
+        npcDeck.push(npcCard);
+        console.log("this is the npcs deck", npcDeck);
+        console.log(playerDeck);
+
     } else if (playerCard.computationalValue = npcCard.computationalValue) {
-        console.log("You Tied!");
-        console.log(playerCard.computationalValue);
-        console.log(npcCard.computationalValue);
-        gamesTied+=1;
+        console.log("It's WAR TIME!");
+        // keep track of every card that is drawn during WAR Time
+        let playerCards = [];
+        let npcCards= [];
+
+        // once a winning card is drawn, declare the winner and update their deck with the new cards.
+        gamesTied += 1;
 
     } setScoreBoard();
 }
