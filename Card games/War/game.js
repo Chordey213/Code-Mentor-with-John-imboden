@@ -107,11 +107,54 @@ function playGame() {
     gamesPlayed += 1;
     var playerCard = playerDeck.shift(1);
     var npcCard = npcDeck.shift(1);
-    console.log("this is the players card", playerCard);
-    console.log("this is the npcs card", npcCard);
     displayCard(playerCard, npcCard);
     displaystack();
-    evaluate(playerCard, npcCard);
+    var result = evaluate(playerCard, npcCard);
+    if (result === "Win!") {
+        appendToDeck(playerDeck, [playerCard, npcCard]);
+        console.log("You Won!");
+    }
+    if (result === "Lose!") {
+        appendToDeck(npcDeck, [npcCard, playerCard]);
+        console.log("You Lose!");
+    }
+    if (result === "War!") {
+        // I need an empty array to store all of the cards that are drawn during the war condition
+        var warDeck = [];
+        appendToDeck(warDeck, [playerCard, npcCard]);
+        console.log("War Time!")
+        // Continue to draw cards one at a time for both the player and NPC
+        while (result === "War!") {
+            appendToDeck(warDeck, playerDeck.splice(0, 3));
+            appendToDeck(warDeck, npcDeck.splice(0, 3));
+            if (isGameOver()) {
+                setGameOverStatus();
+                return;
+            };
+            var playerWarCard = playerDeck.shift(1);
+            var npcWarCard = npcDeck.shift(1);
+            appendToDeck(warDeck, [playerWarCard, npcWarCard]);
+            result = evaluate(playerWarCard, npcWarCard);
+            console.log("warDeck", warDeck);
+            if (result === "Win!") {
+                appendToDeck(playerDeck, warDeck);
+                console.log("You won the War!");
+            }
+            if (result === "Lose!") {
+                appendToDeck(npcDeck, warDeck);
+                console.log("You lost the war! Sorry about your cards broh . . . ");
+            }
+        };
+        // evaluate these cards each time to see if there is a winner or the war continues
+        //once the war is complete, the cards for the winner must be pushed to the winners deck
+    };
+    console.log("the players deck has ", playerDeck);
+    console.log("the npcs deck has ", npcDeck);
+    setScoreBoard();
+    if (isGameOver()) {
+        setGameOverStatus();
+        return;
+    };
 };
 
 function displayCard(playerCard, npcCard) {
@@ -123,34 +166,44 @@ function displayCard(playerCard, npcCard) {
 
 function evaluate(playerCard, npcCard) {
     if (playerCard.computationalValue > npcCard.computationalValue) {
-        console.log("You win!");
         gamesWon += 1;
-        playerDeck.push(npcCard);
-        playerDeck.push(playerCard);
-        console.log("this is the players deck", playerDeck);
-        console.log(npcDeck);
-        ////console.log("This is the players deck: ", playerDeck);
-        ////console.log("This is the Computers deck: ", npcDeck);
-
+        return "Win!"
     } else if (playerCard.computationalValue < npcCard.computationalValue) {
-        console.log("You lose!");
         gamesLost += 1;
-        npcDeck.push(playerCard);
-        npcDeck.push(npcCard);
-        console.log("this is the npcs deck", npcDeck);
-        console.log(playerDeck);
-
+        return "Lose!"
     } else if (playerCard.computationalValue = npcCard.computationalValue) {
-        console.log("It's WAR TIME!");
-        // keep track of every card that is drawn during WAR Time
-        let playerCards = [];
-        let npcCards= [];
-
-        // once a winning card is drawn, declare the winner and update their deck with the new cards.
         gamesTied += 1;
+        return "War!"
+    }
+};
 
-    } setScoreBoard();
-}
+function appendToDeck(pushDeck, cardsToPush) {
+    //pushDeck is an array of cards
+    //cardsToPush is an array of cards
+    for (i = 0; i < cardsToPush.length; i++) {
+        pushDeck.push(cardsToPush[i]);
+    }
+
+};
+
+function isGameOver() {
+    if (playerDeck.length === 0 || npcDeck.length === 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+function setGameOverStatus() {
+    // check to see who still has cards in their deck
+    if (playerDeck.length === 0) {
+        document.getElementById("Results").innerHTML = "The Winner is . . . The Computer!"
+    } else {
+        document.getElementById("Results").innerHTML = "The Winner is . . . You!"
+    }
+};
+
+// appendToDeck(playerDeck,[playerCard, npcCard]);
 
 // 5. Repeat gameplay until one of the collections reaches a count of Zero.
 //      A. Once this happens, a winner is declared. The winner will be placed on screen. 
