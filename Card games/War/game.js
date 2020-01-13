@@ -52,9 +52,11 @@ function buildDeck1(card, suites) {
             }
             if (card[j][1] <= 10) {
                 newCard.assetLocation = "assets/" + card[j][1] + "_of_" + suites[i] + ".svg"
+                console.log(newCard.assetLocation);
             }
             else {
                 newCard.assetLocation = "assets/" + card[j][0] + "_of_" + suites[i] + ".svg"
+                console.log(newCard.assetLocation);
             }
             playDeck.push(newCard);
         }

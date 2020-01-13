@@ -22,6 +22,7 @@ let suites = [
     "hearts", "diamonds", "spades", "clubs"
 ];
 
+
 //*** Gameplaye  ***//
 
 // create the deck and shuffle it
@@ -72,3 +73,28 @@ function shuffleDeck(newDeck) {
 };
 newDeck = shuffleDeck(newDeck);
 console.log(newDeck);
+
+function newImage(){
+    // console.log(newCard.assetLocation);
+    var img = new Image();
+    img.src = "assets/" + newDeck[i].computationalValue + "_of_" + newDeck[i].suite + ".svg";
+    document.getElementById("results").appendChild(img);
+};
+
+// create a function that searches over the newDeck array
+function search() {
+    var search = document.getElementById("searchbox").value;
+    for (i = 0; i < newDeck.length; i++) {
+        if (search === newDeck[i].suite || search === newDeck[i].faceValue) {
+            newImage(newDeck[i])
+            console.log(newDeck[i]);
+            // return newDeck[i];
+        } 
+        if(search != newDeck[i]){
+            parseInt(search);
+
+        }
+    }
+};
+
+
