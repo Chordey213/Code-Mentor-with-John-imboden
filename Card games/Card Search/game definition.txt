@@ -1,0 +1,14 @@
+Card Search Project 
+
+
+    Initialization should consist of creating and shuffling a deck of cards
+    The deck is shuffled, in order to stop the player from searching for cards by index value
+    The view screen should show a search bar with a search button
+
+    As a user, I should be able to type anything relevant into the search bar and have a list of the applicable cards displayed as imgaes below
+        ex: I type "3" and I should see 4 images (3 of hearts, 3 of clubs, 3 of diamonds, 3 of spades).
+        ex: I type "three" and I should see 4 images (3 of hearts, 3 of clubs, 3 of diamonds, 3 of spades).
+        ex: I type "hearts" and I should see 12 images, all of the cards in the suite of hearts
+
+    Bonus:
+        I type "3 hearts" and I see 1 image of the 3 of hearts.

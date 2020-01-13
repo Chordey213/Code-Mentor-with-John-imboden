@@ -50,22 +50,19 @@ function buildDeck1(card, suites) {
                 faceValue: card[j][0],
                 computationalValue: card[j][1]
             }
-
             if (card[j][1] <= 10) {
                 newCard.assetLocation = "assets/" + card[j][1] + "_of_" + suites[i] + ".svg"
-
             }
             else {
                 newCard.assetLocation = "assets/" + card[j][0] + "_of_" + suites[i] + ".svg"
             }
             playDeck.push(newCard);
-
         }
-
     }
     return playDeck;
 };
 newDeck = buildDeck1(card, suites);
+console.log(newDeck);
 
 // 2. Shuffle all of the cards
 //     B. develop a way to unstack the deck, and randomize the order. 
