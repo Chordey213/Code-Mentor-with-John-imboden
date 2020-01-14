@@ -22,8 +22,17 @@ let suites = [
     "hearts", "diamonds", "spades", "clubs"
 ];
 
+let input = document.getElementById("searchbox").value;
 
 //*** Gameplaye  ***//
+
+window.addEventListener("keyup", checkKeyPress, false);
+function checkKeyPress(key) {
+    if (key.keyCode == "13") {
+        document.getElementById("srchbtn").click();
+        document.getElementById("searchbox").value= '';
+    }
+};
 
 // create the deck and shuffle it
 function buildDeck(cards, suites) {
@@ -74,7 +83,7 @@ function shuffleDeck(newDeck) {
 newDeck = shuffleDeck(newDeck);
 console.log(newDeck);
 
-function newImage(card){
+function newImage(card) {
     // console.log(newCard.assetLocation);
     var img = new Image();
     img.id = "newCardimg";
@@ -83,34 +92,29 @@ function newImage(card){
     return img;
 };
 
-function imgCheck(){
-    if(document.getElementById("results").innerHTML = "img"){
-        document.getElementById("results").innerHTML = '';
-    }
-};
-
-function searchDeck(newDeck, search){
+function searchDeck(newDeck, search) {
     var playCard = [];
     for (i = 0; i < newDeck.length; i++) {
         if (search === newDeck[i].suite || search === newDeck[i].faceValue || search === newDeck[i].computationalValue.toString()) {
             playCard.push(newDeck[i]);
             console.log(newDeck[i]);
-        } 
-    } 
+        }
+    }
     return playCard;
 };
 
 // create a function that searches over the newDeck array
 function search() {
+    
     document.getElementById("results").innerHTML = '';
-    var search = document.getElementById("searchbox").value; 
+    var search = document.getElementById("searchbox").value;
     var searchContents = search.split(' ');
     var results = newDeck;
-    for(k=0;k<searchContents.length;k++){
+    for (k = 0; k < searchContents.length; k++) {
         // set my results = to the return of the searchDeck, passing in results
         results = searchDeck(results, searchContents[k]);
     }
-    for(i=0;i<results.length;i++){
+    for (i = 0; i < results.length; i++) {
         newImage(results[i]);
     }
 };
