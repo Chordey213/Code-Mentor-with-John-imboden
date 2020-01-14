@@ -74,27 +74,47 @@ function shuffleDeck(newDeck) {
 newDeck = shuffleDeck(newDeck);
 console.log(newDeck);
 
-function newImage(){
+function newImage(card){
     // console.log(newCard.assetLocation);
     var img = new Image();
-    img.src = "assets/" + newDeck[i].computationalValue + "_of_" + newDeck[i].suite + ".svg";
+    img.id = "newCardimg";
+    img.src = card.assetLocation;
     document.getElementById("results").appendChild(img);
+    return img;
+};
+
+function imgCheck(){
+    if(document.getElementById("results").innerHTML = "img"){
+        document.getElementById("results").innerHTML = '';
+    }
+};
+
+function searchDeck(newDeck, search){
+    var playCard = [];
+    for (i = 0; i < newDeck.length; i++) {
+        if (search === newDeck[i].suite || search === newDeck[i].faceValue || search === newDeck[i].computationalValue.toString()) {
+            playCard.push(newDeck[i]);
+            console.log(newDeck[i]);
+        } 
+    } 
+    return playCard;
 };
 
 // create a function that searches over the newDeck array
 function search() {
-    var search = document.getElementById("searchbox").value;
-    for (i = 0; i < newDeck.length; i++) {
-        if (search === newDeck[i].suite || search === newDeck[i].faceValue) {
-            newImage(newDeck[i])
-            console.log(newDeck[i]);
-            // return newDeck[i];
-        } 
-        if(search != newDeck[i]){
-            parseInt(search);
-
-        }
+    document.getElementById("results").innerHTML = '';
+    var search = document.getElementById("searchbox").value; 
+    var searchContents = search.split(' ');
+    var results = newDeck;
+    for(k=0;k<searchContents.length;k++){
+        // set my results = to the return of the searchDeck, passing in results
+        results = searchDeck(results, searchContents[k]);
+    }
+    for(i=0;i<results.length;i++){
+        newImage(results[i]);
     }
 };
+
+
 
 
