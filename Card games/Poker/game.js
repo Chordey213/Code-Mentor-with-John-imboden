@@ -99,6 +99,14 @@ function deal(hands) {
     console.log("These are the hands: ", hands);
 };
 
+//create pattern recognition. 
+// we do have the card's computational value and the suite. These could be used to help develop the pattern recognition
+// get the list of winning hands for poker from highest suite and cards(Flush, straight, etc) down to "high card"
+// we need a function in order to loop over the hands the NPC is playing 
+// we need to check each win condition against a hand, to see if a hand matches that pattern.
+//5 card rules:
+// players can throw away any amount of cards up to cards, with only one chance to redraw. 
+
 function playGame() {
 
 };
