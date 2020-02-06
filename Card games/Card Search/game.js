@@ -30,7 +30,7 @@ window.addEventListener("keyup", checkKeyPress, false);
 function checkKeyPress(key) {
     if (key.keyCode == "13") {
         document.getElementById("srchbtn").click();
-        document.getElementById("searchbox").value= '';
+        document.getElementById("searchbox").value = '';
     }
 };
 
@@ -99,13 +99,16 @@ function searchDeck(newDeck, search) {
             playCard.push(newDeck[i]);
             console.log(newDeck[i]);
         }
+        // if(search !== newDeck[i].suite|| search !== newDeck[i].faceValue || search !== newDeck[i].computationalValue.toString()) {
+        //     document.getElementById("results").innerText = "Sorry, No such card Exisits. Try again.";
+        // }
     }
+
     return playCard;
 };
 
 // create a function that searches over the newDeck array
 function search() {
-    
     document.getElementById("results").innerHTML = '';
     var search = document.getElementById("searchbox").value;
     var searchContents = search.split(' ');
