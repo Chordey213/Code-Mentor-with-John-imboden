@@ -30,11 +30,16 @@ function eventHandler(event){
     console.log(event);
 };
 
+//This is an example of Composition. It creates an individual control based off of what is passed in
 function createCheckbox(comicTitle){
-    let strComicTitle = `<label><input type="checkbox" onClick='eventHandler(this)' value= '` + comicTitle + `'><span>` + comicTitle + `</span></label>`;
+    let strComicTitle = `
+    <label>
+    <input type="checkbox" onClick='eventHandler(this)' value= '` + comicTitle + `'>
+    <span>` + comicTitle + `</span></label>`;
 
     return strComicTitle
 };
+
 
 function printToScreen(stringsToPrint) {
     if (Array.isArray(stringsToPrint)) {
