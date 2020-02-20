@@ -1,0 +1,4 @@
+Composition notes:
+
+Taking multiple controls and putting them together to create a bigger control. The bigger control can then be used repeatedly for accomplishing tasks
+

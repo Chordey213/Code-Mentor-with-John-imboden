@@ -15,6 +15,8 @@ let comics = [
 
 var comicsClicked = [];
 
+
+
 function eventHandler(event){
     var checked = event.checked;
     if(checked === true){
