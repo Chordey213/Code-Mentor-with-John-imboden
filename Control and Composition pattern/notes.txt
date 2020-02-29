@@ -2,3 +2,8 @@ Composition notes:
 
 Taking multiple controls and putting them together to create a bigger control. The bigger control can then be used repeatedly for accomplishing tasks
 
+Start with a static test:
+Create a static test page for testing the wireframe.
+We started with the wireframe for the control, then we created a new HTML page in order to construct the HTML as it needs to be layed out.
+Then, using Javascript, we created the custom HTML string that creates the control we built.
+
