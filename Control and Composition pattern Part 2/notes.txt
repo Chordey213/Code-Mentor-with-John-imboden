@@ -1,0 +1,53 @@
+Composition notes:
+
+Taking multiple controls and putting them together to create a bigger control. The bigger control can then be used repeatedly for accomplishing tasks
+
+Start with a static test:
+Create a static test page for testing the wireframe.
+We started with the wireframe for the control, then we created a new HTML page in order to construct the HTML as it needs to be layed out.
+Then, using Javascript, we created the custom HTML string that creates the control we built.
+
+Summary 02/29/2020
+We created a mockup HTML page. This page showed the structure of the HTML control item we are attempting to create. 
+The control object contains the nested HTML elements, in order to create a page matching our wireframe.
+We then built individual functions that create each aspect of the HTML Control object in the form of a string that 
+contains the indivdual elements required for constructing the control object.
+Then, using those functions, we built the complex control that are made up of the functions creating the other controls. 
+Afterward, it was a matter of nesting the correct subfunction into the correct function, in order to build the control to match the visual layout of the HTML_ComplexControl.
+
+
+Controls can be anything on the page. I.E. the comic titles plus the checkboxes from Functions and Data flows
+ The concept of composition is the act of stacking or putting together multiple controls, 
+ in order to create some kind of modular, reusable piece (Like react components)
+ with regard to the comics, we took the collection of strings of the comics, and turned them in to a comic object 
+ with a title, issue number, bollean of read (true or false) and a description of the comic
+ the collection is then pushed to an array, turning the array in to an array of the comics objects.
+ using a function, we turned all comics into comic objects
+ afterwards we had to update the search function to have the comics title. since the array is no longer an array of strings, but an array of objects accessed by dot notation
+
+
+Controls are potentially Anything a user will interact with
+
+ creating composition pseudo code
+ convert my comic book list of string titles into a comic collection of objects
+     the object can have any property type I choose
+ once the list is converted, update the search function to make use of one of the properties created above
+ Add, in some way shape or form, a composed text box that is a part of the control unit (The displayed comic or card title)
+
+
+ HTML Mockup
+{/* <div id="outerBox">
+<h2 style="Display: inline">Title goes here</h2> <h2 style="display: inline">#132</h2>
+<a style="display: block" href="#">See more . . . </a>
+    <div id="expanderBox">
+        <img src="assets/conan 132.jpg" style ="width: 350px; vertical-align: text-top">
+        <span>Descitpion goes Here</span>
+    </div> */}
+
+
+03/19/2020
+Today refactored everything, and set aside a specific "displayview" which displays all of the comics in the collection. 
+We then created an addview which builds all of the controls for adding a new comic to the display view
+Then we created an "addViewSubmit" function which resides in the main controller. 
+This function takes in the information from readDataValues, in order to know how to read the comic information, and pass it to the displayview.
+this function reads the data off of that view, and then generates the comic to add to the collection.
