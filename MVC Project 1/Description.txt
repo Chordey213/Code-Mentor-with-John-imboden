@@ -1,0 +1,15 @@
+we are going to take a collection of Dinosaurs that we have taimed in Ark, and build an application that serves as a library. 
+We want to be able to search for dinos, add and delete dinosaurs, provide text for a description, and add a name for the dinosaurs.
+
+The model should have the following
+Original level
+Level at now
+Base stats
+Dino Species
+
+
+This is a single page application following the setup of the Comics catalog dfrom Control and Composition pattern part 2
+Key things:
+
+Use of Composition in controls
+Really good separation of concerns with the MVC style of architecture

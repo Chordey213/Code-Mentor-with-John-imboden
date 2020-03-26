@@ -26,7 +26,7 @@
         <span>Descitpion goes Here</span>
     </div> */}
 
-function createOuterControl(comic){
+function createDisplayView(comic){
     let html = `
     <div id="`+comic.title+comic.issueNumber+`outerBox">
     `+createTitleControl(comic)
@@ -103,7 +103,7 @@ function main(){
     let resultHTML = "";
     let comicCollection = initComicCollection();
     for(let i=0;i<comicCollection.length;i++){
-        resultHTML += createOuterControl(comicCollection[i]);
+        resultHTML += createDisplayView(comicCollection[i]);
     }
     document.getElementById("results").innerHTML =resultHTML;
 }
