@@ -4,13 +4,13 @@
 // an add button, which takes you to the add dino page.
 // The main page should display a total count of the Dinosaurs that are in the library 
 
-// function createDisplayView(dinosaur){
-//     let html = `
-//     <div id="`+dinosaur.name+dinosaur.level+`outerBox">`
-//     // `+createTitleControl(comic)
-//     // + createIssueNumberControl(comic)
-//     // + createExpanderControl(comic) + `
-//     `</div>
-//     `;
-//     return html;
-// };
+function createDisplayView(dinosaur){
+    let html = `
+    <div id="`+comic.title+comic.issueNumber+`outerBox">
+    `+createTitleControl(comic)
+    + createIssueNumberControl(comic)
+    + createExpanderControl(comic) + `
+    </div>
+    `;
+    return html;
+};
