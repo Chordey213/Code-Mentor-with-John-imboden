@@ -1,5 +1,5 @@
  class dinosaur {
-    constructor(name, type, level, health, stamina, torpidity, oxygen, food, weight, meleeDamage, movementSpeed){
+    constructor(name, type, level, health, stamina, torpidity, oxygen, food, weight, meleeDamage, movementSpeed, img){
         this.name=name;
         this.type=type;
         this.level=level;
@@ -11,6 +11,7 @@
         this.weight=weight
         this.meleeDamage=meleeDamage;
         this.movementSpeed=movementSpeed;
+        this.img=img;
     }
  }
 
