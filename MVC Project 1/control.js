@@ -14,7 +14,7 @@ var dinoCollection = initDinoCollection();
 function displayBrowseScreen(){
     let resultHTML = "";
     for(let i=0;i<dinoCollection.length;i++){
-        resultHTML += createLeftBoxControl(dinoCollection[i]);
+        resultHTML += createDisplayView(dinoCollection[i]);
     }
 
     document.getElementById("results").innerHTML =resultHTML;
