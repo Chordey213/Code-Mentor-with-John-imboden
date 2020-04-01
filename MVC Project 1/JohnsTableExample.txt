@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>Dino name</th>
+      <th>Dino Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td>Dino Type</td>
+          </tr>
+          <tr>
+            <td>health</td>
+            <td>stamina</td>
+          </tr>
+          <tr>
+            <td>torpidity</td>
+          </tr>
+          <tr>
+            <td>Oxygen</td>
+          </tr>
+          <td>Food</td>
+          <td>Weight</td>
+          <tr>
+          </tr>
+          <td>Melee Damage</td>
+          <td>Movement Speed</td>
+        </table>
+      </td>
+      <td> Dino Image</td>
+    </tr>
+  </tbody>
+</table>
