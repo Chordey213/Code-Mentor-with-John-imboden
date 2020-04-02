@@ -73,14 +73,13 @@ function createTableHeadControl(dinosaur){
 
 // This function creates the Table body, which will house the remaining table elements that display the Dino stats, and dino image
 function createTableBodyControl(dinosaur){
-  let tBodyHTML = `<tbody>`
-  + `<tr>`
-  + `<td>`
+  let tBodyHTML = `<tbody>
+  <tr>
+  <td>`
   + createDinoTable(dinosaur)
-  + `</td>`
-  + createDinoImageControl(dinosaur)
-  + `</tr>`
-  + `</tbody>`;
+  + `</td>
+  </tr>
+  </tbody>`;
   return tBodyHTML;
 };
 
@@ -93,7 +92,7 @@ function createDinoTable(dinosaur){
   + createDinoVitals(dinosaur)
   + createDinoPhysicalStatsControl(dinosaur)
   +
-  `</table>`;
+  `</table>`
   return dinoTableHTML;
 };
 
