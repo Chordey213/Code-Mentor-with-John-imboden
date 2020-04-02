@@ -39,111 +39,108 @@
 
 // This function creates the Div in which each dinosaurs table of information, stats, and pic will reside
 function createDisplayView(dinosaur) {
-    let html = `
+  let html = `
     <div id="`+ dinosaur.name + `"> `
-        + createTableControl(dinosaur)
-        +`
+    + createTableControl(dinosaur)
+    + `
 </div>
 `;
-    return html;
+  return html;
 };
 
 
 // This function creates the beginning table element for the Dino Information, stats, and pic
-function createTableControl(dinosaur){
-    let tableHTML = `<table id="` + dinosaur.name + `">`  
+function createTableControl(dinosaur) {
+  let tableHTML = `<table id="` + dinosaur.name + `">`
     + createTableHeadControl(dinosaur)
     + createTableBodyControl(dinosaur)
     +
     `</table>`;
-    return tableHTML;
+  return tableHTML;
 };
 
 // This function creates the Table head element which displays the Dino's name and level as headers
-function createTableHeadControl(dinosaur){
-    let tableHeadHTML = `<thead id="` + dinosaur.name + `_Head">`  
+function createTableHeadControl(dinosaur) {
+  let tableHeadHTML = `<thead id="` + dinosaur.name + `_Head">`
     + `<tr>`
-    + `<th id="`+dinosaur.name+`">`+ dinosaur.name + `</th>`
-    + `<th id="`+dinosaur.level+`">`+ dinosaur.level + `</th>`
+    + `<th id="` + dinosaur.name + `">` + dinosaur.name + `</th>`
+    + `<th id="` + dinosaur.level + `">` + dinosaur.level + `</th>`
     + `</tr>`
     +
     `</head>`;
-    return tableHeadHTML;
+  return tableHeadHTML;
 };
 
 // This function creates the Table body, which will house the remaining table elements that display the Dino stats, and dino image
-function createTableBodyControl(dinosaur){
+function createTableBodyControl(dinosaur) {
   let tBodyHTML = `<tbody>
   <tr>
   <td>`
-  + createDinoTable(dinosaur)
-  + `</td>
+    + createDinoTable(dinosaur)
+    +
+    `</td>
+  </tr>
   </tr>
   </tbody>`;
   return tBodyHTML;
 };
 
 // This Function creates the Table for the Dinosaurs stats
-function createDinoTable(dinosaur){
-  let dinoTableHTML = `<table id="`+dinosaur.name+`">`
-  + createDinoTypeControl(dinosaur)
-  + createDinoVitalityControl(dinosaur)
-  + createDynoTorporControl(dinosaur)
-  + createDinoVitals(dinosaur)
-  + createDinoPhysicalStatsControl(dinosaur)
-  +
-  `</table>`
+function createDinoTable(dinosaur) {
+  let dinoTableHTML = `<table id="` + dinosaur.name + `">`
+    + createDinoTypeControl(dinosaur)
+    + createDinoVitalityControl(dinosaur)
+    + createDynoTorporControl(dinosaur)
+    + createDinoVitals(dinosaur)
+    + createDinoPhysicalStatsControl(dinosaur)
+    +
+    `</table>`
   return dinoTableHTML;
 };
 
 //The following functions create the Table rows and Table datat elements that comprise the dino stats
-function createDinoTypeControl(dinosaur){
-  let dinoTypeHTML = `<tr id="dinoType">`
-  + `<td id="`+dinosaur.type+`">` + dinosaur.type + `</td>`;
+function createDinoTypeControl(dinosaur) {
+  let dinoTypeHTML = `<tr id="dinoType">
+  <td id="`+ dinosaur.type + `">` + dinosaur.type + `</td>
+  </tr>`;
   return dinoTypeHTML;
 };
 
-function createDinoVitalityControl(dinosaur){
-  let dinoVitalityHTML = `<tr id="dinoVitals">`
-  + `<td id="`+dinosaur.health+`">Health: ` + dinosaur.health + `</td> <td id="`+dinosaur.stamina+`"> Stamina: ` + dinosaur.stamina + `</td>`
-  +
-  `</tr>`;
+function createDinoVitalityControl(dinosaur) {
+  let dinoVitalityHTML = `<tr id="dinoVitality">
+  <td id="`+ dinosaur.health + `">Health: ` + dinosaur.health + `</td> <td id="` + dinosaur.stamina + `"> Stamina: ` + dinosaur.stamina + `</td>
+  </tr>`;
   return dinoVitalityHTML;
 };
 
-function createDynoTorporControl(dinosaur){
-  let dinoTorporHTML = `<tr id="dinoTorpor">`
-  + `<td id="`+dinosaur.torpidity+`">Torpidity: ` + dinosaur.torpidity + `</td>`
-  +
-  `</tr>`;
+function createDynoTorporControl(dinosaur) {
+  let dinoTorporHTML = `<tr id="dinoTorpor">
+  <td id="`+ dinosaur.torpidity + `">Torpidity: ` + dinosaur.torpidity + `</td>
+  </tr>`;
   return dinoTorporHTML;
 };
 
-function createDinoVitals(dinosaur){
-  let dinoVitalsHTML = `<tr id="dinoVitals">`
-   + 
-  `<td id="`+dinosaur.oxygen+`">Oxygen: ` + dinosaur.oxygen + `</td> 
-  <td id="`+dinosaur.food+`">Food: ` + dinosaur.food + `</td>
-  <td id="`+dinosaur.weight+`">Weight: ` + dinosaur.weight + `</td>`
-  +
-  `</tr>`;
+function createDinoVitals(dinosaur) {
+  let dinoVitalsHTML = `<tr id="dinoVitals">
+  <td id="`+ dinosaur.oxygen + `">Oxygen: ` + dinosaur.oxygen + `</td> 
+  <td id="`+ dinosaur.food + `">Food: ` + dinosaur.food + `</td>
+  <td id="`+ dinosaur.weight + `">Weight: ` + dinosaur.weight + `</td>
+  </tr>`;
   return dinoVitalsHTML;
 
 };
 
-function createDinoPhysicalStatsControl(dinosaur){
-  let dinoPhysicalStatsHTML = `<tr id="dinoPhysicalStats">`
-  + 
-  `<td id="`+dinosaur.meleeDamage+`">Melee Damage: ` + dinosaur.meleeDamage + `</td>
-  <td id="`+dinosaur.movementSpeed+`">Movement Speed: ` + dinosaur.movementSpeed + `</td>`
-  +
-  `</tr>`;
+function createDinoPhysicalStatsControl(dinosaur) {
+  let dinoPhysicalStatsHTML = `<tr id="dinoPhysicalStats">
+  <td id="`+ dinosaur.meleeDamage + `">Melee Damage: ` + dinosaur.meleeDamage + `</td>
+  <td id="`+ dinosaur.movementSpeed + `">Movement Speed: ` + dinosaur.movementSpeed + `</td>
+  </tr>`;
   return dinoPhysicalStatsHTML;
 };
 
-function createDinoImageControl(dinosaur){
-  let imgHTML = `<td id="`+dinosaur.img+`"> <image id="` + dinosaur.img + `" src="` + dinosaur.img +`" alt="` + dinosaur.name + `>`
-  +
-  `</td>`;
+function createDinoImageControl(dinosaur) {
+  let imgHTML = `<image id="` + dinosaur.img + `" 
+  src="` + dinosaur.img + `" 
+  alt="` + dinosaur.name + `>`;
   return imgHTML;
 };
