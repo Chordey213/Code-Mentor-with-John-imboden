@@ -1,0 +1,38 @@
+<div id="`+dinosaur.name+ `">              //created in createDisplayView(dinosaur)
+<table>                                    //created in createTableControl(dinosaur)
+  <thead>                                  //created in createTableHeadControl(dinosaur)
+    <tr>
+      <th>Dino name</th>
+      <th>Dino Level</th>
+    </tr>
+  </thead>                                 **end createTableHeadControl(dinosaur
+  <tbody>                                  //created in createTableBodyControl(dinosaur)
+    <tr>
+      <td>
+        <table id="`+dinosaur.name+`">     //created in createDinoTable(dinosaur)
+          <tr id="dinoType">               //created in createDinoTypeControl(dinosaur)
+            <td>Dino Type</td>
+          </tr>                            **end of createDinoTypeControl(dinosaur)
+          <tr id="dinoVitality">           //created in createDinoVitalityControl(dinosaur)
+            <td>health</td>
+            <td>stamina</td>
+          </tr>                            **end of createDinoVitalityControl(dinosaur)
+          <tr id="dinoTorpor">             //created in createDinoTorporControl(dinosaur)
+            <td>torpidity</td>
+          </tr>                            **end of createDinoTorporControl(dinosaur)
+          <tr id="dinoVitals">             //created in createDinoVitalsControl(dinosaur)
+            <td>Oxygen</td>
+            <td>Food</td>
+            <td>Weight</td> 
+          </tr>                            **end of createDinoVitalsControl(dinosaur)
+          <tr id="dinoPhysicalStats">      //created in createDinoPhysicalStatsControl(dinosaur)
+            <td>Melee Damage</td>
+            <td>Movement Speed</td>
+          </tr>                            **end of createDinoPhysicalStatsControl(dinosaur)
+        </table>                           **end of createDinoTable(dinosaur)
+      </td>
+      <td id="dinoImg"><image id="`+dinosaur.image + `" src="` + dinosaur.img +`" alt="` + dinosaur.name + `> Dino Image</td>
+    </tr>
+  </tbody>                                 ** end createTableBodyControl(dinosaur)
+</table>
+</div>

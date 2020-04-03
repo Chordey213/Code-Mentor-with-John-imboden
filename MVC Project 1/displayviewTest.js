@@ -41,17 +41,36 @@
 function createDisplayView(dinosaur) {
   let html = `
     <div id="`+ dinosaur.name + `"> `
-    + createTableControl(dinosaur)
+    + createExpanderControl(dinosaur)
     + `
 </div>
 `;
   return html;
 };
 
+function createExpanderControl(dinosaur){
+  let expanderBoxHTML = `<h4>`+dinosaur.name+` </h4><a style="display: block;" href="javascript:toggleExpanderBox('`+dinosaur.name+`_Table')">See More . . .</a>
+  <div id="`+dinosaur.name+`_Table" hidden>`
+  + createTableControl(dinosaur)
+  +
+  `</div>`;
+  return expanderBoxHTML;
+};
+
+function toggleExpanderBox(id){
+  let box = document.getElementById(id);
+  if(box.hidden){
+      box.hidden = false;
+  } else {
+      box.hidden=true;
+  }
+};
+
+
 
 // This function creates the beginning table element for the Dino Information, stats, and pic
 function createTableControl(dinosaur) {
-  let tableHTML = `<table id="` + dinosaur.name + `">`
+  let tableHTML = `<table id="` + dinosaur.name + `_Table">`
     + createTableHeadControl(dinosaur)
     + createTableBodyControl(dinosaur)
     +
@@ -61,33 +80,34 @@ function createTableControl(dinosaur) {
 
 // This function creates the Table head element which displays the Dino's name and level as headers
 function createTableHeadControl(dinosaur) {
-  let tableHeadHTML = `<thead id="` + dinosaur.name + `_Head">`
-    + `<tr>`
-    + `<th id="` + dinosaur.name + `">` + dinosaur.name + `</th>`
-    + `<th id="` + dinosaur.level + `">` + dinosaur.level + `</th>`
-    + `</tr>`
-    +
-    `</head>`;
+  let tableHeadHTML = `<thead id="DinoTableHead">
+    <tr>
+    <th id="` + dinosaur.name + `">` + dinosaur.name + `</th>
+    <th id="` + dinosaur.level + `">` + dinosaur.level + `</th>
+    </tr>
+    </thead>`;
   return tableHeadHTML;
 };
 
 // This function creates the Table body, which will house the remaining table elements that display the Dino stats, and dino image
 function createTableBodyControl(dinosaur) {
   let tBodyHTML = `<tbody>
-  <tr>
-  <td>`
-    + createDinoTable(dinosaur)
-    +
-    `</td>
-  </tr>
-  </tr>
+    <tr>
+      <td>`
+        + createDinoTable(dinosaur)
+        +
+      `</td>
+      <td>
+      `+createDinoImageControl(dinosaur)+
+      `</td>
+    </tr>
   </tbody>`;
   return tBodyHTML;
 };
 
 // This Function creates the Table for the Dinosaurs stats
 function createDinoTable(dinosaur) {
-  let dinoTableHTML = `<table id="` + dinosaur.name + `">`
+  let dinoTableHTML = `<table id="` + dinosaur.name + `_Table">`
     + createDinoTypeControl(dinosaur)
     + createDinoVitalityControl(dinosaur)
     + createDynoTorporControl(dinosaur)
@@ -139,8 +159,7 @@ function createDinoPhysicalStatsControl(dinosaur) {
 };
 
 function createDinoImageControl(dinosaur) {
-  let imgHTML = `<image id="` + dinosaur.img + `" 
-  src="` + dinosaur.img + `" 
-  alt="` + dinosaur.name + `>`;
+  let imgHTML = `
+  <image id="DinoImg" src="` + dinosaur.img + `">`;
   return imgHTML;
 };

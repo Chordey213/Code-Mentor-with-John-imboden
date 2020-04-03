@@ -8,29 +8,29 @@
   <tbody>
     <tr>
       <td>
-        <table id="`+dinosaur.name+`">
-          <tr id="dinoType">
+        <table>
+          <tr>
             <td>Dino Type</td>
           </tr>
-          <tr id="dinoVitality">
+          <tr>
             <td>health</td>
             <td>stamina</td>
           </tr>
-          <tr id="dinoTorpor">
+          <tr>
             <td>torpidity</td>
           </tr>
-          <tr id="dinoVitals">
+          <tr>
             <td>Oxygen</td>
             <td>Food</td>
             <td>Weight</td> 
           </tr>
-          <tr id="dinoPhysicalStats">
+          <tr>
             <td>Melee Damage</td>
             <td>Movement Speed</td>
           </tr>
         </table>
       </td>
-      <td id="dinoImg"><image id="`+dinosaur.image + `" src="` + dinosaur.img +`" alt="` + dinosaur.name + `> Dino Image</td>
+      <td> Dino Image</td>
     </tr>
   </tbody>
 </table>
