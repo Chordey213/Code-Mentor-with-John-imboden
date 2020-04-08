@@ -11,6 +11,14 @@ function initDinoCollection() {
 
 var dinoCollection = initDinoCollection();
 
+function displaySearchScreen(){
+    let searchHTML = "";
+    searchHTML += createSearchDisplayView();
+    document.getElementById("results").innerHTML= searchHTML
+};
+
+displaySearchScreen();
+
 function displayBrowseScreen(){
     let resultHTML = "";
     for(let i=0;i<dinoCollection.length;i++){
@@ -18,6 +26,7 @@ function displayBrowseScreen(){
     }
 
     document.getElementById("results").innerHTML =resultHTML;
+    //add a button to go back to the search screen. by default, Browse dino's button dissapears.
 };
 
-displayBrowseScreen();
+//buttons displayed on screen(browse dinos, add dinos) need to be created in the controller, and updated by functions from the independant pages built by their JS file
