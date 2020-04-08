@@ -11,7 +11,7 @@ function searchDinoCatalog(){
     let searchResults = search(userInput, dinoCollection);
     // document.getElementById("results").innerHTML="This Works";
     // return searchResults;
-    console.log(searchResults);
+    // console.log(searchResults);
 };
 
 // function search(searchParam){}
@@ -21,9 +21,10 @@ function search(searchParam, dinoCollection) {
     for (let i = 0; i < dinoCollection.length; i++) {
         if (dinoCollection[i].name === searchParam) {
             results.push(dinoCollection[i]);
+            // console.log(results);
         }
         // results.push(dinoCollection[i]);
     }
-    document.getElementById('results').innerHTML=results;
+    document.getElementById('results').innerHTML=createTableControl(results);
     return results;
 };
