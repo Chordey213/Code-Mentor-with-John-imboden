@@ -48,21 +48,21 @@ function createDisplayView(dinosaur) {
   return html;
 };
 
-function createExpanderControl(dinosaur){
-  let expanderBoxHTML = `<h4>`+dinosaur.name+` </h4><a style="display: block;" href="javascript:toggleExpanderBox('`+dinosaur.name+`_Table')">See More . . .</a>
-  <div id="`+dinosaur.name+`_Table" hidden>`
-  + createTableControl(dinosaur)
-  +
-  `</div>`;
+function createExpanderControl(dinosaur) {
+  let expanderBoxHTML = `<h4>` + dinosaur.name + ` </h4><a style="display: block;" href="javascript:toggleExpanderBox('` + dinosaur.name + `_Table')">See More . . .</a>
+  <div id="`+ dinosaur.name + `_Table" hidden>`
+    + createTableControl(dinosaur)
+    +
+    `</div>`;
   return expanderBoxHTML;
 };
 
-function toggleExpanderBox(id){
+function toggleExpanderBox(id) {
   let box = document.getElementById(id);
-  if(box.hidden){
-      box.hidden = false;
+  if (box.hidden) {
+    box.hidden = false;
   } else {
-      box.hidden=true;
+    box.hidden = true;
   }
 };
 
@@ -94,12 +94,12 @@ function createTableBodyControl(dinosaur) {
   let tBodyHTML = `<tbody>
     <tr>
       <td>`
-        + createDinoTable(dinosaur)
-        +
-      `</td>
+    + createDinoTable(dinosaur)
+    +
+    `</td>
       <td>
-      `+createDinoImageControl(dinosaur)+
-      `</td>
+      `+ createDinoImageControl(dinosaur) +
+    `</td>
     </tr>
   </tbody>`;
   return tBodyHTML;
