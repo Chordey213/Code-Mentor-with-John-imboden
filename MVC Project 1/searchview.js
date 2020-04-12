@@ -20,10 +20,11 @@ function search(searchParam, dinoCollection) {
     var results = [];
     for (let i = 0; i < dinoCollection.length; i++) {
         if (dinoCollection[i].name === searchParam) {
+            //fix this to not be an exact search I.E. all lowers, partials
             results.push(dinoCollection[i]);
         }
         // results.push(dinoCollection[i]);
     }
-    document.getElementById('results').innerHTML=results;
+    document.getElementById('results').innerHTML=createTableControl(results[0]);
     return results;
 };

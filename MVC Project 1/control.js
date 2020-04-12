@@ -17,6 +17,13 @@ function displaySearchScreen(){
     document.getElementById("results").innerHTML= searchHTML
 };
 
+// displaySearchScreen();
+
+function displayAddScreen(){
+    let addHTML = "";
+    searchHTML += createAddDisplayView();
+    document.getElementById("results").innerHTML= addHTML;
+};
 displaySearchScreen();
 
 function displayBrowseScreen(){
