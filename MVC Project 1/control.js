@@ -21,7 +21,7 @@ function displaySearchScreen(){
 
 function displayAddScreen(){
     let addHTML = "";
-    searchHTML += createAddDisplayView();
+    addHTML += createAddDisplayView();
     document.getElementById("results").innerHTML= addHTML;
 };
 displaySearchScreen();
