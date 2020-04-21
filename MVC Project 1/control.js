@@ -22,7 +22,7 @@ function displaySearchScreen(){
 function displayAddScreen(){
     let addHTML = "";
     addHTML += createAddDisplayView();
-    document.getElementById("results").innerHTML= addHTML;
+    document.getElementById("add").innerHTML= addHTML;
 };
 displaySearchScreen();
 
@@ -33,6 +33,7 @@ function displayBrowseScreen(){
     }
 
     document.getElementById("results").innerHTML =resultHTML;
+    document.getElementById("add").innerHTML = "";
     //add a button to go back to the search screen. by default, Browse dino's button dissapears.
 };
 
