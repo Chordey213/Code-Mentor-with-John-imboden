@@ -23,6 +23,7 @@ function displayAddScreen(){
     let addHTML = "";
     addHTML += createAddDisplayView();
     document.getElementById("add").innerHTML= addHTML;
+    createSubmit();
 };
 displaySearchScreen();
 

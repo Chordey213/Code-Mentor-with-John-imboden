@@ -1,11 +1,14 @@
 function createAddDisplayView() {
     let html = `
-    <div id="`+ dinosaur.name + `"> `
+    <div id="crap"> `
         + createAddViewController()
-        + `
+        +`
 </div>`
+document.getElementById("results").innerHTML = "";
     return html;
 };
+
+
 
 function createAddViewController() {
     let addViewHTML = `<table id="addDinoTableHead">
@@ -33,10 +36,19 @@ function createAddViewController() {
     <td> <input id="newDinoMove" type="text" placeholder="Movement Speed"> </td>
     </tr>
     <tr>
-    <td> <button onClick="getDinoName()"> SUBMIT </td>
+    <td id="submitBtn"> 
     </tr>
     </table>`;
     return addViewHTML;
+};
+
+function createSubmit(){
+    let submitHTML = `<button onClick="getDinoName()"> SUBMIT </td>`;
+    let btn = document.getElementById("crap");
+    if(btn){
+        btn.innerHTML += submitHTML;
+    }
+    else { alert("The submitBtn element was not created")}
 };
 
 // at the end of this, all information gathered for the new dino must get pushed to the Dino collection. 
@@ -71,6 +83,7 @@ function getDinoName() {
         movementSpeed,
         img
     )
+
     console.log(addDino);
     compileDinoInfo(addDino);
     return addDino;
@@ -79,7 +92,7 @@ function getDinoName() {
 function compileDinoInfo(addDino){
     dinoCollection.push(addDino)
     document.getElementById("results").innerHTML = createTableControl(addDino);
-    document.getElementById("add").innerhtml = displaySearchScreen();
+    // document.getElementById("add").innerhtml = displaySearchScreen();
     console.log(dinoCollection);
 
 };
