@@ -13,3 +13,10 @@ Key things:
 
 Use of Composition in controls
 Really good separation of concerns with the MVC style of architecture
+
+Part 2:
+I want you to write a program that will auto assign breeding partners for dinosaurs based on stats.
+It will need to predict the best possible super dino that can be bred.
+t will also need to predict the best number of generations before achieving said super dino, 
+Best of the main stats:
+Hp, Stam, melee, and weight.
