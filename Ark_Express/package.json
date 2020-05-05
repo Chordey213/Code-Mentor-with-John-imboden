@@ -4,7 +4,7 @@
   "description": "an Ark dino companion app, hosted in express",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node databaseSetup.js"
   },
   "author": "Cory Wallace | John Imboden",
   "license": "UNLICENSED",
