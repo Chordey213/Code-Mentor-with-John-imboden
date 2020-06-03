@@ -4,7 +4,7 @@
   "description": "an Ark dino companion app, hosted in express",
   "main": "app.js",
   "scripts": {
-    "test": "node databaseSetup.js"
+    "test": "node app.js"
   },
   "author": "Cory Wallace | John Imboden",
   "license": "UNLICENSED",
