@@ -1,0 +1,16 @@
+{
+  "name": "address_express",
+  "version": "1.0.0",
+  "description": "an Ark dino companion app, hosted in express",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "author": "Cory Wallace | John Imboden",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sqlite3": "^4.2.0"
+  }
+}
