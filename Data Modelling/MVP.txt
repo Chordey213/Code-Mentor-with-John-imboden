@@ -1,0 +1,13 @@
+So first we need to do some data modelling. 
+
+Our project will be this:
+We are writing an api that will allow for users to store and retrieve contact information for a club mailing list. 
+
+MVP here is that we need we need to architect a 3 tier application to allow for the storage, retrieval, and maintenance of the contact info for various members of the club.
+
+Stretch goals are as follows:
+The ability to log in and see / change only your address if you are a standard user. You can also unsubscribe / delete your address from the system.
+
+If you are a club officer you can see all of the addresses on file as well as prepare a report for printing mail-able address labels. This is in addition to standard user privileges.
+
+If you are an admin you gain the ability to delete / change / view any addresses in the system.
