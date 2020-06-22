@@ -1,7 +1,8 @@
  class Address  {
-    constructor(housenumber, streetname, city, state, zip){
+    constructor(housenumber, streetname, city, state, zip, unit){
         this.housenumber = housenumber,
         this.streetname = streetname,
+        this.unit = unit,
         this.city = city,
         this.state = state,
         this.zip = zip

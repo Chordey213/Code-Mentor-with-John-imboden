@@ -1,5 +1,5 @@
 var {Address, Customer} = require('./Models/Models.js');
-
+var database  = require('./Data Access/addressDataAccess.js') ;
 //BASE SETUP
 
 // call the packages we need
@@ -26,6 +26,7 @@ router.get('/', function (req, res) {
 var addressRouter = require('./Routing/addressRouting.js');
 addressRouter.routeRegister(router);
 
+
 var customerRouter=require('./Routing/customerRouting.js');
 customerRouter.routeRegister(router);
 
@@ -39,3 +40,4 @@ app.use('/api', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+database.connectToDatabase();

@@ -1,7 +1,7 @@
 {
   "name": "address_express",
   "version": "1.0.0",
-  "description": "an Ark dino companion app, hosted in express",
+  "description": "A simple address input/output application using MVC with API and DB functions",
   "main": "app.js",
   "scripts": {
     "test": "nodemon app.js"
